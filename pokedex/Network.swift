@@ -18,7 +18,7 @@ enum NetErrorCode: Error {
 class Network {
     
     static let link = Network()
-    static let baseURL = "https://pokeapi.co/api/v2/pokemon?offset=151&limit=151" // https://pokedex-bb36f.firebaseio.com/pokemon.json
+    static let baseURL = "https://pokedex-bb36f.firebaseio.com/pokemon.json"
     
     init (){}
     
@@ -39,7 +39,7 @@ class Network {
                 completed(.success(decodeResponse))
             } catch {
                 print("Hubo un error con los datos \(error.localizedDescription)")
-                completed(.failed(.decodingError))
+                completed(.failure(.decodingError))
             }
         }
         task.resume()
@@ -47,8 +47,7 @@ class Network {
     
 }
 
-
-/*func translateText(_ text: String, completion: @escaping (String?) -> Void) {
+ func translateText(_ text: String, completion: @escaping (String?) -> Void) {
     let apiKey = "YOUR_GOOGLE_API_KEY"
     let urlString = "https://translation.googleapis.com/language/translate/v2?key=\(apiKey)"
     
@@ -93,4 +92,13 @@ struct GoogleTranslationResponse: Codable {
     }
     let data: Data
 }
-/*
+
+extension Data {
+    func parseData(removeString word: String) -> Data? {
+        let dataString = String (data: self, encoding: .utf8)
+        let dtaString = dataString?.replacingOccurrences(of: word, with: "")
+        
+        guard let data = dtaString?.data(using: .utf8) else {return nil}
+        return data
+    }
+}

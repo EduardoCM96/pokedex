@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct PokeModel: Codable, Hashable {
+    let id, attack, defense: Int
+    let description, name, imageUrl, type : String
+}

@@ -32,8 +32,12 @@ struct ContentView: View {
 }
 
 struct Pokedex: View {
-    @StateObject var response = PokeModel()
+    @StateObject var response = PokeViewModel()
     var body: some View {
-        Text("Pokedex")
+        NavigationStack {
+            List(response.listPoke, id: \.id) { pokemon in
+                Text(pokemon.name)
+            }
+        }
     }
 }

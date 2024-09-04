@@ -28,8 +28,8 @@ struct SplashSwiftUI: View {
                     LottieAnimationView.contentMode = .scaleAspectFit
                 }
             
-                .playbackMode(.playing(.toProgress(1, loopMode: .playOnce)))
-                .animationSpeed(1.5)
+                .playbackMode(.playing(.toProgress(2, loopMode: .playOnce)))
+                .animationSpeed(1.0)
                 .animationDidFinish { completed in
                     didFinish?()
                 }
