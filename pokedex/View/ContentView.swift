@@ -32,6 +32,7 @@ struct ContentView: View {
 }
 
 struct Pokedex: View {
+    @StateObject var response = PokeModel()
     var body: some View {
         Text("Pokedex")
     }
