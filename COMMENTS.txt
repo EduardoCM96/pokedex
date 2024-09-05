@@ -1,0 +1,15 @@
+La aplicación desarrollada tiene como objetivo principal ofrecer contenido informativo de manera visualmente atractiva, aprovechando animaciones y transiciones que mejoren la experiencia del usuario. Dado este enfoque, se consideró que el patrón de diseño MVVM (Model-View-ViewModel) era el más adecuado para estructurar la aplicación por las siguientes razones:
+
+
+Separación de responsabilidades: El patrón MVVM facilita una clara separación entre la lógica de negocio (Model), la lógica de presentación (ViewModel) y la interfaz de usuario (View). Esto permite que cada componente de la aplicación se mantenga desacoplado, lo que no solo mejora la mantenibilidad del código, sino que también facilita la adición de nuevas funcionalidades o la modificación de las existentes sin afectar otras partes del sistema.
+
+Vinculación con SwiftUI: SwiftUI, siendo un framework declarativo, se integra de manera natural con el patrón MVVM. SwiftUI se encarga de la capa de visualización, permitiendo que las vistas se actualicen automáticamente en respuesta a los cambios en los datos proporcionados por el ViewModel. Esto resulta en un código más limpio y fácil de seguir, ya que la lógica de actualización de la interfaz de usuario queda simplificada.
+
+Manejo de animaciones: Al utilizar MVVM junto con SwiftUI, las animaciones y las transiciones pueden gestionarse de manera más efectiva dentro del ViewModel, lo que permite que las vistas en SwiftUI se centren exclusivamente en la representación visual. Esto garantiza una experiencia de usuario fluida y coherente, ya que las animaciones están estrechamente vinculadas a los cambios en los datos y la lógica de la aplicación.
+
+Lottie en combinación con SwiftUI fue una decisión estratégica para enriquecer la interfaz de usuario con animaciones de alta calidad, manteniendo al mismo tiempo un rendimiento óptimo y una integración fluida con el código existente. Para lograr esto, se consideró esencial incorporar animaciones que no solo fueran estéticamente agradables, sino también ligeras y eficientes en términos de rendimiento.
+
+Como ultimo punto me falto agregar la traducción de los texto aquí tuve complicaciones ya que al hacer mi investigación me encontre que lo mas optimo era traves de API de Google translacion pero es una plataforma de pago entonces ya no pude concluir con el acceso solo encontre la documentacion pero hacia falta un API KEY deje en el código le método 
+
+La otra forma era travez de localizare crear un archivo pero era pasear toda la descripción y después traducir de manera manual y agregar la validaci\'f3n de detectar el idioma del dispositivo\
+Solo que no lo hice considero que era repetir mucho mas c\'f3digo es como si hubiera echo un mook en vez ce consumir el API

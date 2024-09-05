@@ -1,0 +1,2 @@
+la desición de usar del patrón MVVM en combinación con SwiftUI proporciona una arquitectura sólida y flexible para una aplicación centrada en la presentación de información de manera atractiva y dinámica, facilitando tanto el desarrollo como el mantenimiento a largo plazo
+sobre el diseño y los colres de la aplciación me base en los colores principales de las categorias de los pokemons y tratando de hacer ajustable a cualquier dispsotivo 
