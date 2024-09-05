@@ -20,7 +20,7 @@ struct ContentView: View {
             }
         }
         .onAppear(perform: {
-            withAnimation(.easeInOut(duration: 5).delay(2)) {
+            withAnimation(.easeInOut(duration: 3).delay(5)) {
                 isActive.toggle()
             }
         })
@@ -33,11 +33,34 @@ struct ContentView: View {
 
 struct Pokedex: View {
     @StateObject var response = PokeViewModel()
+    @State private var pokeSerch = ""
+    
+    private let pokeColumns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
     var body: some View {
         NavigationStack {
-            List(response.listPoke, id: \.id) { pokemon in
-                Text(pokemon.name)
+            ScrollView {
+                LazyVGrid(columns: pokeColumns) {
+                    ForEach(response.filterPoke, id: \.self) { pokemons in
+                        
+                        NavigationLink(destination: DetailPokemons(PokeDta: pokemons)) {
+                            PokeCellView(pokemons: pokemons, dataModel: response)
+                        }
+                    }
+                }.padding()
             }
+            .searchable(text: $pokeSerch, prompt: "Buscar aquí tu pokemon")
+            .onChange(of: pokeSerch, { oldValue, NewValue in
+                withAnimation {
+                    response.pokeFilter(name: NewValue)
+                }
+            })
+            .navigationBarTitle("Lista de Pokemons")
         }
     }
 }
+
